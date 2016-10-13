@@ -24,6 +24,7 @@ namespace DVDScraper
                 using (WebClient client = new WebClient())
                 {
 
+
                     string htmlCode = client.DownloadString("http://api.namefake.com");
                     CustomerApi customerApi = new CustomerApi();
 
@@ -72,9 +73,11 @@ namespace DVDScraper
 
         static void Main(string[] args)
         {
-            //GenerateRandomUsers();
+
+            GenerateRandomUsers();
 
             GenerateMovies();
+
         }
     }
 }
