@@ -1,0 +1,26 @@
+﻿@model List<Models.Rentals>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container m-t-100">
+
+    @foreach (var rental in Model)
+    {
+
+
+        <h3>Rental by <a href="/Customer/Details/@rental.UserDetails.Id">@rental.UserDetails.name</a> on <b>@rental.RentedOn</b></h3>
+
+        foreach (var movie in rental.RentedMoviesDetails)
+        {
+
+            <ul>
+                <li>@movie.Title</li>
+            </ul>
+
+        }
+
+
+    }
+
+</div>

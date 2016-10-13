@@ -1,0 +1,33 @@
+﻿@model Models.Movie
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container m-t-100">
+    <div class="col-md-7">
+
+
+        <div class="row">
+            <h2>@Model.Title</h2>
+            <h5>@Model.CopiesAvailable copies available</h5>
+
+            <hr />
+
+            <p><b>@Model.Genres</b></p>
+            <p>@Model.Overview</p>
+            <p><i>Released: @Model.ReleaseDate</i></p>
+        </div>
+
+        <div class="row m-t-100">
+            
+            <h5>Recent rents</h5>
+
+        </div>
+
+
+
+    </div>
+    <div class="col-md-5">
+        <img src="@Model.ImageUrlBig" />
+    </div>
+</div>

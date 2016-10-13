@@ -1,0 +1,54 @@
+﻿@model Models.Customer
+@{
+    ViewBag.Title = "New";
+}
+
+
+
+<div class="jumbotron">
+    <p class="lead">Creating new rental for @Model.name</p>
+    <p>Select the below movies that @Model.name wants to rent</p>
+</div>
+
+<div data-ng-controller="infiniteScroll">
+    <div class="col-md-3">
+        <div style="position:fixed">
+
+            <p><b>Customer:</b></p>
+            <p>@Model.name</p>
+            <p>@Model.address</p>
+            <br />
+            <p><b>Selected movies:</b></p>
+
+            <b ng-show="selectedItems.length == 0">No movies selected yet.</b>
+
+            <div data-ng-repeat="item in selectedItems">
+                <p style="font-size:11px"><b>{{item.title}}</b> <u ng-click="removeMovie(item)">remove</u></p>
+            </div>
+
+            <br /><br />
+
+            <a ng-show="selectedItems.length > 0" href="#" ng-click="postMovies('@Model.Id')" class="btn btn-lg btn-danger btn-cons btn-rounded">Confirm</a>
+
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <div>
+            <div class="'smallOpacity' : busy" infinite-scroll="loadMore()" infinite-scroll-distance="1" style="padding:0; margin:0;">
+                <div data-masonry data-x-margin="10" data-y-margin="10" data-img-width="180" style="margin:0; padding:0;">
+                    <div data-ng-repeat="item in items" ng-cloak>
+
+                        <div class="widget-item" ng-click="selectMovie(item)">
+                            <div ng-show="item.copiesAvailable > 0" style="position:absolute; top:220px; left:2px; background-color:#000; padding:10px 5px;">
+                                <p style="font-size:11px"><b>{{item.copiesAvailable}} copies available</b></p>
+                            </div>
+                            <img style="border:5px solid #fff" ng-class="{'smallOpacity' : item.copiesAvailable == 0}" src="{{item.imageUrl}}" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

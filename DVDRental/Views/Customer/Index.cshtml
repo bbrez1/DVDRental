@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Customer Overview";
+}
+
+<div class="container m-t-100">
+    <div data-ng-controller="customerController">
+        <div data-ng-repeat="item in items" ng-cloak>
+            <div>
+
+                <h2><a href="/Customer/Details/{{item.id}}">{{item.name}}</a></h2>
+
+                <address>
+                    {{item.address}}<br />
+                    <abbr title="Phone">P:</abbr>
+                    {{item.phone_h}}<br />
+                    <abbr title="Email">M:</abbr>
+                    {{item.email_u}}@@{{item.email_d}}
+                </address>
+
+            </div>
+        </div>
+    </div>
+</div>

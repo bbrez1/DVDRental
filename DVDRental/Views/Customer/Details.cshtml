@@ -1,0 +1,50 @@
+﻿@model DVDRental.Controllers.CustomerRentals
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container">
+    <div class="m-t-100">
+
+        <div class="col-md-5">
+            <h4>Customer information:</h4>
+            <h2>@Model.customer.name</h2>
+            <p>@Model.customer.address</p>
+            <p>@Model.customer.phone_h</p>
+            <p>@Model.customer.email_u@@@Model.customer.email_d</p>
+            <p>
+                @{Model.customer.pict = "http://namefake.com/fot/" + @Model.customer.pict + ".svg";}
+                <img src="@Model.customer.pict" width="100" />
+            </p>
+        </div>
+        <div class="col-md-5">
+
+            <h4>Recent Rentals:</h4>
+
+
+            @foreach (var rental in Model.rentals)
+            {
+                <p>
+                    <h3>On @rental.RentedOn</h3>
+                    <ul>
+                        @foreach (var movie in rental.RentedMoviesDetails)
+                        {
+                            <li>@movie.Title</li>
+                        }
+                    </ul>
+                </p>
+            }
+
+
+        </div>
+
+        <div class="col-md-2">
+
+            <h2>
+                <a href="/Rentals/New/@Model.customer.Id">New Rental</a>
+            </h2>
+
+        </div>
+
+    </div>
+</div>
