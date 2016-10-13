@@ -57,31 +57,31 @@ Projects in the solution:
 
 
 - Data
-	+	Includes all classes to insert, read and update data in the database
++	Includes all classes to insert, read and update data in the database
 
-	- CustomerApi   \
-	- MovieApi       | -  all 3 include basic mongo calls to store / update or read data
-	- RentalsApi    /
+- CustomerApi   \
+- MovieApi       | -  all 3 include basic mongo calls to store / update or read data
+- RentalsApi    /
 
 - DVDRental
-	+	Web Application
++	Web Application
 
 - DVDScraper
-	Two functions; Wrote this so I didn't have to manually enter data and to show how easy it is to screen scrape / use APIs
+Two functions; Wrote this so I didn't have to manually enter data and to show how easy it is to screen scrape / use APIs
 
-	+	GenerateRandomUsers - uses namefake.com's api to populate our customer data. 
++	GenerateRandomUsers - uses namefake.com's api to populate our customer data. 
 
-	Explanation of the function:
-	Calls the API 20 times to grab info of 20 randomly generated users, deserializes the object and inserts it into the database
+Explanation of the function:
+Calls the API 20 times to grab info of 20 randomly generated users, deserializes the object and inserts it into the database
 
-	+	GenerateMovies		- screen scrapes themoviedb to gather basic data about movies 
-	(didn't find a decent api that was available without waiting for the owners to confirm my account so I just screen scraped it)
-	Loads 300 pages of movies and grabs the movie's name, image, description, genre, year of release and adds a random number of how many copies are available.
-	I have a bug in this code - it scrapes the same data multiple times on each page so it only inserts one movie per page (so I added a break to just skip it) 
-	- wanted to come back to this but ran out of time.
++	GenerateMovies		- screen scrapes themoviedb to gather basic data about movies 
+(didn't find a decent api that was available without waiting for the owners to confirm my account so I just screen scraped it)
+Loads 300 pages of movies and grabs the movie's name, image, description, genre, year of release and adds a random number of how many copies are available.
+I have a bug in this code - it scrapes the same data multiple times on each page so it only inserts one movie per page (so I added a break to just skip it) 
+- wanted to come back to this but ran out of time.
 
 - Models
-	+	All data models used with the scrapers / web app - don't think these need explaining
++	All data models used with the scrapers / web app - don't think these need explaining
 
 
 
@@ -129,3 +129,16 @@ DISTRIBUTED TIME:
 
 
 Loved the test, was fun. A bit too big to fully implement in 4 hours.
+
+How to use:
+
+1. Ensure mongodb is installed and running
+- Install mongodb
+- run mongod.exe
+
+2. Populate data
+- Run DVDScraper
+- Wait till it inserts users and movies
+
+3. Run the web app
+- Run DVDRental
