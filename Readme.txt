@@ -1,3 +1,7 @@
+******************************************************************
+My CV link: https://dl.dropboxusercontent.com/u/2611010/Resume.pdf
+******************************************************************
+
 Before I began I estimated that this project would take ~20 to have a decent / bug free version with all the requirements met (written in previous SQL related task).
 So I had to strip it down a bit. Obviously I could finish it quicker if I wanted a very simple -> default bootstrap design and razor powered solution (not powered by js). I wanted it to be "modern".
 
